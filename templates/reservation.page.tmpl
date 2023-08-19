@@ -1,0 +1,46 @@
+{{template "base" .}}
+
+{{define "content"}}
+<div class="flex-fill mt-3 d-flex">
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col col-lg-6">
+        <h1 class="mb-3">Search for Availability</h1>
+        <form action="/room/reservation" method="POST">
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="start_date" class="form-label">Starting Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="start_date"
+                  name="start_date"
+                  aria-describedby="Starting date"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <label for="end_date" class="form-label">Ending Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="end_date"
+                  name="end_date"
+                  aria-describedby="Ending date"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Search Availability
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

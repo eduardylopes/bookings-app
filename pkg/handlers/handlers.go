@@ -52,6 +52,14 @@ func (m *Repository) MajorsSuite(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "majors_suit.page.tmpl", &models.TemplateData{})
 }
 
+// Reservation is the handler for the major's suite page
+func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	remoteIP := r.RemoteAddr
+	m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
+
+	render.RenderTemplate(w, "reservation.page.tmpl", &models.TemplateData{})
+}
+
 // About is the handler for the about page
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	// perform some logic
