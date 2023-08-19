@@ -36,6 +36,22 @@ func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
 
+// GeneralsQuarters is the handler for the general's quarters page
+func (m *Repository) GeneralsQuarters(w http.ResponseWriter, r *http.Request) {
+	remoteIP := r.RemoteAddr
+	m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
+
+	render.RenderTemplate(w, "generals_quarters.page.tmpl", &models.TemplateData{})
+}
+
+// MajorsSuite is the handler for the major's suite page
+func (m *Repository) MajorsSuite(w http.ResponseWriter, r *http.Request) {
+	remoteIP := r.RemoteAddr
+	m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
+
+	render.RenderTemplate(w, "majors_suit.page.tmpl", &models.TemplateData{})
+}
+
 // About is the handler for the about page
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	// perform some logic
